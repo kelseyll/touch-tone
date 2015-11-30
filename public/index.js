@@ -5,8 +5,11 @@ for (var i = 1; i < 21; i++) {
 	audioFiles.push(new Audio('sounds/tone-' + i + '.mp3'));
 }
 
+audioFiles[0].addEventListener('ended', function() {
+	this.currentTime = 0;
+	this.play();
+}, false);
 audioFiles[0].play();
-audioFiles[0].loop = true;
 
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
@@ -55,5 +58,6 @@ socket.on('updateUsers', function(data) {
 function turnOffAudio() {
 	for (var i=1; i<audioFiles.length; i++) {
 		audioFiles[i].pause();
+		audioFiles[i].currentTime = 0;
 	}
 }
