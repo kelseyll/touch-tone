@@ -56,16 +56,16 @@ h1 {
 	animation:         flex 4s infinite;
 }
 .circle:nth-of-type(1) {
-	width:100px;
-	height:100px;
+	width:120px;
+	height:120px;
 	transform: scale(1);
 	-webkit-transform: scale(1); 
 	z-index:20;
 	background-color: rgba(255,255,255,0.05);
 }
 .circle:nth-of-type(2) {
-	width:130px;
-	height:130px;
+	width:150px;
+	height:150px;
 	z-index:19;
 }
 .circle:nth-of-type(3) {
