@@ -5,12 +5,6 @@ for (var i = 1; i < 21; i++) {
 	audioFiles.push(new Audio('sounds/tone-' + i + '.mp3'));
 }
 
-audioFiles[0].addEventListener('ended', function() {
-	this.currentTime = 0;
-	this.play();
-});
-audioFiles[0].play();
-
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
 
