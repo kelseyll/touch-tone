@@ -23,26 +23,17 @@ $('body').on('mousedown', '.circle:nth-of-type(1)', function(e) {
 $('body').on('mouseup', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
 		socket.emit('userLeave', {number: 1});
-		$(".circle:nth-of-type(2)").remove();
-	}
-});
-
-$('body').on('mouseleave', '.circle:nth-of-type(1)', function(e) {
-	if(!isMobile) {
-		$(".circle:nth-of-type(2)").remove();
 	}
 });
 
 $('body').on('touchstart', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
 	socket.emit('userEnter', {number: 1});
-	$('.container').append( '<div class=\'circle flex \'>' );
 });
 
 $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
 	socket.emit('userLeave', {number: 1});
-	$('.circle:nth-of-type(2)').remove();
 	});
 
 socket.on('updateUsers', function(data) {
