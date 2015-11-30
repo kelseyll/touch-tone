@@ -37,5 +37,12 @@ $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 
 socket.on('updateUsers', function(data) {
 	var number = data.number;
+	turnOffAudio();
 	audioFiles[number].play();
 });
+
+function turnOffAudio() {
+	for (var i=1; i<audioFiles.length; i++) {
+		audioFiles[i].stop();
+	}
+}
