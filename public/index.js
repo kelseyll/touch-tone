@@ -16,9 +16,15 @@ $('body').on('mousedown', '.circle:nth-of-type(1)', function(e) {
 	}
 });
 
-$('body').on('mouseup mouseleave', '.circle:nth-of-type(1)', function(e) {
+$('body').on('mouseup', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
 		socket.emit('userLeave', {number: 1});
+		$(".circle:nth-of-type(2)").remove();
+	}
+});
+
+$('body').on('mouseleave', '.circle:nth-of-type(1)', function(e) {
+	if(!isMobile) {
 		$(".circle:nth-of-type(2)").remove();
 	}
 });
