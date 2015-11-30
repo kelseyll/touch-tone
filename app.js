@@ -17,12 +17,14 @@ var io = socketio(http_server);
 io.on('connection', function(socket) {
 	socket.on('userEnter', function(data) {
 		numUsers += data.number;
+		console.log("user pressing");
 		socket.emit('updateUsers', {
 			number: numUsers
 		})
 	});
 	socket.on('userLeave', function(data) {
 		numUsers -= data.number;
+		console.log("user let go");
 		socket.emit('updateUsers', {
 			number: numUsers
 		})

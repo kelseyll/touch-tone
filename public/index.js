@@ -7,37 +7,35 @@ for (var i = 1; i < 21; i++) {
 
 audioFiles[0].play();
 
-//arr[numUsers - 1].play()
-
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
 $('body').on('mousedown', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
-		socket.emit('userEnter', {number: 1})
+		socket.emit('userEnter', {number: 1});
 		$('.container').append( '<div class=\'circle flex \'>' );
 	}
 });
 
 $('body').on('mouseup mouseleave', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
-		socket.emit('userLeave', {number: 1})
+		socket.emit('userLeave', {number: 1});
 		$(".circle:nth-of-type(2)").remove();
 	}
 });
 
 $('body').on('touchstart', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
-	socket.emit('userEnter', {number: 1})
+	socket.emit('userEnter', {number: 1});
 	$('.container').append( '<div class=\'circle flex \'>' );
 });
 
 $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
-	socket.emit('userLeave', {number: 1})
+	socket.emit('userLeave', {number: 1});
 	$('.circle:nth-of-type(2)').remove();
 	});
 
 socket.on('updateUsers', function(data) {
-	var number = data.number
+	var number = data.number;
 	audioFiles[number].play();
 });
