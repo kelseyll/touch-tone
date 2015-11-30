@@ -16,13 +16,13 @@ html {
 }
 h1 {
 	font-family: 'Yantramanav', sans-serif;
-	line-height: 100px;
+	line-height: 120px;
 	text-align: center;
 	font-weight: 700;
 	font-size: 15px;
 	-webkit-user-select: none;
 	cursor: pointer;
-	color: rgba(255,255,255,0.2);
+	color: rgba(255,255,255,0.1);
 }
 
 @media(min-width:550px) {

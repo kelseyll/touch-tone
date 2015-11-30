@@ -8,7 +8,7 @@ for (var i = 1; i < 21; i++) {
 audioFiles[0].addEventListener('ended', function() {
 	this.currentTime = 0;
 	this.play();
-}, false);
+});
 audioFiles[0].play();
 
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
