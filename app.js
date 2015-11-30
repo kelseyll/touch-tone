@@ -18,7 +18,7 @@ io.on('connection', function(socket) {
 	socket.on('userEnter', function(data) {
 		numUsers += data.number;
 		console.log(numUsers, "users present");
-		socket.emit('updateUsers', {
+		io.emit('updateUsers', {
 			number: numUsers
 		})
 	});
