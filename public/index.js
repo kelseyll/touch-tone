@@ -13,76 +13,31 @@ var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userA
 
 $('body').on('mousedown', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
+		socket.emit('userEnter', {number: 1})
 		$('.container').append( '<div class=\'circle flex \'>' );
 	}
 });
 
 $('body').on('mouseup mouseleave', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
+		socket.emit('userLeave', {number: 1})
 		$(".circle:nth-of-type(2)").remove();
 	}
 });
 
 $('body').on('touchstart', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
+	socket.emit('userEnter', {number: 1})
 	$('.container').append( '<div class=\'circle flex \'>' );
 });
 
 $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
+	socket.emit('userLeave', {number: 1})
 	$('.circle:nth-of-type(2)').remove();
 	});
 
 socket.on('updateUsers', function(data) {
 	var number = data.number
-	// switch(number){
-	// 	case 1:
-	// 		audio.play()
-	// }
+	audioFiles[number].play();
 });
-    // var audio1 = document.createElement('audio');
-    // audio1.setAttribute('src', 'sounds/tone-1-c.mp3');
-    // audio1.setAttribute('autoplay', 'autoplay');
-
-    // var audio2 = document.createElement('audio');
-    // audio2.setAttribute('src', 'sounds/tone-2-d.mp3');
-
-    // var audio3 = document.createElement('audio');
-    // audio3.setAttribute('src', 'sounds/tone-3-e.mp3');
-    // audio3.setAttribute('autoplay', 'autoplay');
-    
-    // var audio4 = document.createElement('audio');
-    // audio3.setAttribute('src', 'sounds/tone-3-e.mp3');
-    // audio3.setAttribute('autoplay', 'autoplay');
-
-    // $.get();
-
-    // audio1.addEventListener("load", function() {
-    //     audio1.play();
-    // }, true);
-
-    // audio2.addEventListener("load", function() {
-    //     audio2.play();
-    // }, true);
-    
-    // audio3.addEventListener("load", function() {
-    //     audio3.play();
-    // }, true);
-
-    // audio4.addEventListener("load", function() {
-    //     audio4.play();
-    // }, true);
-
-    // $('.play').click(function() {
-    //     audio1.play();
-    //     audio2.play();
-    //     audio3.play();
-    //     audio4.play();
-    // });
-
-    // $('.pause').click(function() {
-    //     audio1.pause();
-    //     audio2.pause();
-    //     audio3.pause();
-    //     audio4.pause();
-    // });

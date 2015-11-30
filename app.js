@@ -21,6 +21,12 @@ io.on('connection', function(socket) {
 			number: numUsers
 		})
 	});
+	socket.on('userLeave', function(data) {
+		numUsers -= data.number;
+		socket.emit('updateUsers', {
+			number: numUsers
+		})
+	})
 	console.log('heyehreu')
 });
 
