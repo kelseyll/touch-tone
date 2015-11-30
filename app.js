@@ -20,14 +20,21 @@ io.on('connection', function(socket) {
 		console.log(numUsers, "users present");
 		io.emit('updateUsers', {
 			number: numUsers
-		})
+		});
+		io.emit('addCircle', {
+			'l':'k'
+		});
 	});
+
 	socket.on('userLeave', function(data) {
 		numUsers -= data.number;
 		console.log(numUsers, "users present");
-		socket.emit('updateUsers', {
+		io.emit('updateUsers', {
 			number: numUsers
 		})
+		io.emit('removeCircle', {
+			'l':'k'
+		});
 	})
 	console.log('heyehreu')
 });

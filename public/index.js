@@ -13,7 +13,6 @@ audioFiles[0].play();
 
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
-var worker = new Worker('socketHander.js')
 
 $('body').on('mousedown', '.circle:nth-of-type(1)', function(e) {
 	if(!isMobile) {
@@ -53,6 +52,16 @@ socket.on('updateUsers', function(data) {
 	turnOffAudio();
 	console.log('attempting to play item', number, audioFiles[number]);
 	audioFiles[number].play();
+});
+
+socket.on('addCircle', function(data) {
+	console.log('add circle?');
+	$('.container').append( '<div class=\'circle flex \'>' );
+});
+
+socket.on('removeCircle', function(data) {
+	console.log('remove circle?');
+	$('.circle:nth-of-type(2)').remove();
 });
 
 function turnOffAudio() {
