@@ -6,6 +6,7 @@ for (var i = 1; i < 21; i++) {
 }
 
 audioFiles[0].play();
+audioFiles[0].loop = true;
 
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
@@ -44,11 +45,12 @@ $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 socket.on('updateUsers', function(data) {
 	var number = data.number;
 	turnOffAudio();
+	console.log('attempting to play item', number, audioFiles[number]);
 	audioFiles[number].play();
 });
 
 function turnOffAudio() {
 	for (var i=1; i<audioFiles.length; i++) {
-		audioFiles[i].stop();
+		audioFiles[i].pause();
 	}
 }
