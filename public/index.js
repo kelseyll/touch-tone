@@ -1,7 +1,7 @@
 var socket = io.connect();
 
 var audioFiles = [];
-for (var i = 1; i < 22; i++) {
+for (var i = 1; i < 21; i++) {
 	audioFiles.push(new Audio('sounds/tone-' + i + '.mp3'));
 }
 
