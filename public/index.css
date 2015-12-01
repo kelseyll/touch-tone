@@ -27,6 +27,9 @@ h1 {
 	cursor: pointer;
 	color: rgba(255,255,255,0.5);
 }
+.dark-h1 {
+	color: rgba(255,255,255,0);
+}
 @media(min-width:550px) {
 	h1 {
 		display:none;

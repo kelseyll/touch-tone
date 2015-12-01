@@ -23,11 +23,13 @@ $('body').on('mouseup', '.circle:nth-of-type(1)', function(e) {
 $('body').on('touchstart', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
 	socket.emit('userEnter', {number: 1});
+	$('h1').addClass('dark-h1');
 });
 
 $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 	e.preventDefault();
 	socket.emit('userLeave', {number: 1});
+	$('h1').removeClass('dark-h1');
 	});
 
 socket.on('updateUsers', function(data) {
