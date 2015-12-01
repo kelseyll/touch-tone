@@ -35,7 +35,7 @@ socket.on('updateUsers', function(data) {
 	var number = data.number;
 	turnOffAudio();
 	console.log('attempting to play item', number, audioFiles[number - 1]);
-	audioFiles[number].play();
+	audioFiles[number - 1].play();
 });
 
 socket.on('addCircle', function(data) {
