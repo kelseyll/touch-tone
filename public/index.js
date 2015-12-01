@@ -34,7 +34,7 @@ socket.on('updateUsers', function(data) {
 	console.log('poop');
 	var number = data.number;
 	turnOffAudio();
-	console.log('attempting to play item', number, audioFiles[number]);
+	console.log('attempting to play item', number, audioFiles[number - 1]);
 	audioFiles[number].play();
 });
 
