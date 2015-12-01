@@ -33,6 +33,9 @@ $('body').on('touchend', '.circle:nth-of-type(1)', function(e) {
 socket.on('updateUsers', function(data) {
 	console.log('poop');
 	var number = data.number;
+	if( number > 20 ) {
+		number = 20;
+	}
 	turnOffAudio();
 	console.log('attempting to play item', number, audioFiles[number - 1]);
 	audioFiles[number - 1].play();
@@ -49,7 +52,7 @@ socket.on('removeCircle', function(data) {
 });
 
 function turnOffAudio() {
-	for (var i=1; i<audioFiles.length; i++) {
+	for (var i=0; i<audioFiles.length; i++) {
 		audioFiles[i].pause();
 		audioFiles[i].currentTime = 0;
 	}
